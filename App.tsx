@@ -48,9 +48,9 @@ function App(): React.JSX.Element {
           <LearnMoreLinks />
         </View>
       </ScrollView>
-      <View style={{flex: 1}}>
-        <KeyboardAvoidingView behavior={'height'} style={{ flex: 1 }} >
-            <View style={{flex: 1}}>
+      <View style={{flex: 1}} >
+        <KeyboardAvoidingView behavior={'height'} style={{ flex: 1 }}>
+              <View style={{flex: 1}}>
                 <TextInput style={styles.textInput}/>
             </View>
         </KeyboardAvoidingView>
