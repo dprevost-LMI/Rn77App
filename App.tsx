@@ -16,6 +16,8 @@ import {
   View,
 } from 'react-native';
 import { KeyboardAvoidingView } from 'react-native-keyboard-controller';
+import { KeyboardProvider } from 'react-native-keyboard-controller';
+
 
 import {
   Colors,
@@ -32,30 +34,33 @@ function App(): React.JSX.Element {
   };
 
   return (
-    <SafeAreaView style={backgroundStyle} >
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <LearnMoreLinks />
+    <KeyboardProvider>
+      <SafeAreaView style={backgroundStyle} >
+        <StatusBar
+          barStyle={isDarkMode ? 'light-content' : 'dark-content'}
+          backgroundColor={backgroundStyle.backgroundColor}
+        />
+        <ScrollView
+          contentInsetAdjustmentBehavior="automatic"
+          style={backgroundStyle}>
+          <Header />
+          <View
+            style={{
+              backgroundColor: isDarkMode ? Colors.black : Colors.white,
+            }}>
+            <LearnMoreLinks />
+          </View>
+        </ScrollView>
+        <View style={{flex: 1}} >
+          <KeyboardAvoidingView behavior={'height'} style={{ flex: 1 }}>
+                <View style={{flex: 1}}>
+                  <TextInput style={styles.textInput}/>
+              </View>
+          </KeyboardAvoidingView>
         </View>
-      </ScrollView>
-      <View style={{flex: 1}} >
-        <KeyboardAvoidingView behavior={'height'} style={{ flex: 1 }}>
-              <View style={{flex: 1}}>
-                <TextInput style={styles.textInput}/>
-            </View>
-        </KeyboardAvoidingView>
-       </View>
-    </SafeAreaView>
+      </SafeAreaView>
+    </KeyboardProvider>
+
   );
 }
 
