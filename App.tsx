@@ -37,7 +37,6 @@ function App(): React.JSX.Element {
   return (
     <KeyboardProvider>
       <SafeAreaView style={backgroundStyle}>
-      <View style={{flex: 1, flexDirection: 'column', justifyContent: 'flex-end'}} >
         <StatusBar
           barStyle={isDarkMode ? 'light-content' : 'dark-content'}
           backgroundColor={backgroundStyle.backgroundColor}
@@ -52,12 +51,13 @@ function App(): React.JSX.Element {
             <LearnMoreLinks />
           </View>
         </ScrollView>
-        <KeyboardAvoidingView behavior={'padding'} keyboardVerticalOffset={100} style={{ flex: 1, maxHeight: 30, }}>
+        {/* <View style={{flex: 1, maxHeight: 30}} > */}
+          <KeyboardAvoidingView behavior={'padding'} keyboardVerticalOffset={100} style={{ flex: 1, maxHeight: 30, }}>
             <View style={{flex: 1}}>
                 <TextInput style={styles.textInput}/>
             </View>
-        </KeyboardAvoidingView>
-      </View>
+          </KeyboardAvoidingView>
+        {/* </View> */}
       </SafeAreaView>
     </KeyboardProvider>
   );
