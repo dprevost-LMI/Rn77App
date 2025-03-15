@@ -7,7 +7,6 @@
 
 import React from 'react';
 import {
-  KeyboardAvoidingView,
   SafeAreaView,
   ScrollView,
   StatusBar,
@@ -16,6 +15,7 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
+import { KeyboardAvoidingView } from 'react-native-keyboard-controller';
 
 import {
   Colors,
