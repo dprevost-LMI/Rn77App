@@ -7,8 +7,8 @@
 
 import React from 'react';
 import {
-  // SafeAreaView,
-  // ScrollView,
+  SafeAreaView,
+  ScrollView,
   StatusBar,
   StyleSheet,
   TextInput,
@@ -36,12 +36,14 @@ function App(): React.JSX.Element {
 
   return (
     <KeyboardProvider>
-      <View style={{flex: 1, flexDirection: 'column'}}>
+      <SafeAreaView style={backgroundStyle}>
+      <View style={{flex: 1, flexDirection: 'column', justifyContent: 'flex-end'}} >
         <StatusBar
           barStyle={isDarkMode ? 'light-content' : 'dark-content'}
           backgroundColor={backgroundStyle.backgroundColor}
         />
-        <View style={backgroundStyle}>
+        <ScrollView
+          style={backgroundStyle}>
           <Header />
           <View
             style={{
@@ -49,13 +51,14 @@ function App(): React.JSX.Element {
             }}>
             <LearnMoreLinks />
           </View>
-        </View>
-          <KeyboardAvoidingView behavior={'padding'} keyboardVerticalOffset={100} style={{ flex: 1, maxHeight: 30}}>
-                <View style={{flex: 1}}>
-                  <TextInput style={styles.textInput}/>
-              </View>
-          </KeyboardAvoidingView>
-        </View>
+        </ScrollView>
+        <KeyboardAvoidingView behavior={'padding'} keyboardVerticalOffset={100} style={{ flex: 1, maxHeight: 30, }}>
+            <View style={{flex: 1}}>
+                <TextInput style={styles.textInput}/>
+            </View>
+        </KeyboardAvoidingView>
+      </View>
+      </SafeAreaView>
     </KeyboardProvider>
   );
 }
