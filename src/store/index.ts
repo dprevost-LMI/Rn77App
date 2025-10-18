@@ -7,7 +7,7 @@ const store = configureStore({
     app: appReducer,
   },
   enhancers: (getDefaultEnhancers) =>
-    getDefaultEnhancers().concat(rozeniteDevToolsEnhancer()),
+    getDefaultEnhancers.concat(rozeniteDevToolsEnhancer()),
 });
 
 export type RootState = ReturnType<typeof store.getState>;
