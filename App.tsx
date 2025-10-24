@@ -23,6 +23,8 @@ import {
   LearnMoreLinks,
 } from 'react-native/Libraries/NewAppScreen';
 
+import ParentComponent from './src/components/ParentComponent';
+
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
 
@@ -45,13 +47,19 @@ function App(): React.JSX.Element {
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
+          {/* Parent/Child Pressable Components */}
+          <ParentComponent />
+
           <LearnMoreLinks />
         </View>
       </ScrollView>
       <View style={{flex: 1}} >
         <KeyboardAvoidingView behavior={'height'} style={{ flex: 1 }}>
               <View style={{flex: 1}}>
-                <TextInput style={styles.textInput}/>
+                <TextInput 
+                  style={styles.textInput}
+                  placeholder="Type here..."
+                />
             </View>
         </KeyboardAvoidingView>
        </View>
